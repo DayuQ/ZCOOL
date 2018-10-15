@@ -4,7 +4,7 @@ const proxy = require('http-proxy-middleware');
 // 开发服务器的配置
 const server_config = {
     host: 'localhost',
-    port: 8080,
+    port: 8090,
     livereload: true,
     middleware: [
         proxy('/lagou', { // /lagou 这个是判断依据 当我们请求'http://localhost:8080/lagou/abc'的时候，这个代理就生效了

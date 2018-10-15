@@ -1,14 +1,12 @@
 
-// import job_controller from '../controllers/job_controller';
-// import search_controller from '../controllers/search_controller';
-// import profile_controller from '../controllers/profile_controller';
+import original_controller from '../controllers/original_controller';
+import activity_controller from '../controllers/activity_controller';
 
-// const routes = {
-//     '#/job': job_controller,
-//     '#/search': search_controller,
-//     '#/profile': profile_controller
-// }
+const routes = {
+    '#/original': original_controller,
+    '#/activity': activity_controller
+}
 
-// export { routes } ;
+export { routes } ;
 
 

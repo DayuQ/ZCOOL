@@ -1,4 +1,7 @@
-div,body{
+div,body,p,ul,li,span,img{
     margin: 0;
     padding: 0;
+}
+ul{
+    list-style: none;
 }

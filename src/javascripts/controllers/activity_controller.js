@@ -21,6 +21,7 @@ const render = () => {
 
 
     slideout();
+    SearchMask();
 }
 
 const slideout = ()=>{
@@ -30,11 +31,23 @@ const slideout = ()=>{
         'padding': 256,
         'tolerance': 70
     });
-
     // Toggle button
     document.querySelector('.toggle-button').addEventListener('click', function () {
         slideout.toggle();
     });
+}
+
+//点击搜索 渲染视图
+const SearchMask = ()=>{
+    document.querySelector('.search-sousou').addEventListener('tap',function(){
+        document.querySelector('.mask-search').style.display="block";
+    })
+    document.querySelector('.search-cancel').addEventListener('tap',function(){
+        document.querySelector('.mask-search').style.display="none";
+    })
+    document.querySelector('.cover').addEventListener('tap',function(){
+        document.querySelector('.mask-search').style.display="none";
+    })
 }
 
 

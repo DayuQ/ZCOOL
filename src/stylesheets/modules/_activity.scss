@@ -32,7 +32,56 @@
             //     left: 0px;
             // }
         }
-        
+    }
+    .mask-search{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1001;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5);
+        display: none;
+        overflow: hidden;
+        .mask-search-head{
+            height:1.466667rem;
+            background: #282828; 
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            color: #fff;
+            font-size: .506667rem;
+            .search-box{
+                background-color: #fff;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                border-radius: .08rem;
+                width: 7.466667rem;
+                height:.933333rem;
+                i{
+                    width: .4rem;
+                    height: .4rem;
+                    color:#999;
+                    margin:0 .266667rem;
+                }
+                span{
+                    width: .4rem;
+                    height: .4rem;
+                    color:#999;
+                    margin:0 .266667rem;
+                }
+                input{
+                    border: none;
+                    outline:none;
+                }
+                
+            }
+        }
+        .cover{
+            width: 100%;
+            height:100%;
+        }
     }
     .activity-list{
         padding: .266667rem;
@@ -88,10 +137,39 @@
             font-size: .426667rem;
         }
     }
-    div{
+    div.load-app{
         img{
             max-width: 100%;
             height: auto;
+        }
+    }
+    .footer{
+        padding: .586667rem .266667rem;
+        text-align: center;
+        background-color: #f9f9f9;
+        color:#999;
+        font-size: .506667rem;
+        .foot-top{
+            padding-bottom: .266667rem;
+            border-bottom:.013333rem solid #e5e5e5;           
+            &::after{
+                content:"";
+                display:block;
+                clear: both;
+            }
+            a{
+                color:#999;  
+            }
+            .foot-top-left{
+                float: left;               
+            }
+            .foot-top-right{
+                float: right;
+            }
+        }
+        .foot-bottom{
+            text-align: center;
+            padding-top: .266667rem;
         }
     }
 

@@ -17,6 +17,7 @@ const render = () => {
     //     router.switch('#/avtivity');
     // })
     slideout();
+    SearchMask();
 }
 
 const slideout = ()=>{
@@ -41,6 +42,19 @@ const slideout = ()=>{
             toggle_button_flag = true;
         }
     });
+}
+
+//点击搜索 渲染视图
+const SearchMask = ()=>{
+    document.querySelector('.search-sousou').addEventListener('tap',function(){
+        document.querySelector('.mask-search').style.display="block";
+    })
+    document.querySelector('.search-cancel').addEventListener('tap',function(){
+        document.querySelector('.mask-search').style.display="none";
+    })
+    document.querySelector('.cover').addEventListener('tap',function(){
+        document.querySelector('.mask-search').style.display="none";
+    })
 }
 
 

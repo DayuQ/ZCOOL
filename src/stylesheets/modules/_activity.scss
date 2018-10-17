@@ -18,17 +18,16 @@
             font-size: .533333rem;
             font-weight: 600;
         }
-        b{
+        .icon-sanhengxian{
             color: #FFD100;
             font-size: .933333rem;
-            line-height: .653333rem;
+            position: relative;
+            top: -0.186667rem;
         }
-        // &:first-of-type i {
-        //     font-size: 1.333333rem;
-        //     position: absolute;
-        //     top: 0px;
-        //     left: 0px;
-        // }
+        .icon-guanbi{
+            color: #FFD100;
+            font-size: .733333rem;
+        }
     }
     
 }

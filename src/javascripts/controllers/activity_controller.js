@@ -10,16 +10,12 @@ const render = () => {
     // 刚才说了，一切皆模块，说明html也是模块，看一下它暴露的是什么 发现是字符串
     // console.log(homeTemplate)
     document.querySelector('#root').innerHTML = activity_template;
-    
-    // 渲染home的job视图
-    // job_controller.render();
+
 
     // switchTab();
-    $('.home-title').tap(function () {
-        router.switch('#/avtivity');
-    })
-
-
+    // $('.home-title').tap(function () {
+    //     router.switch('#/avtivity');
+    // })
     slideout();
 }
 
@@ -27,15 +23,27 @@ const slideout = ()=>{
     var slideout = new Slideout({
         'panel': document.getElementById('panel'),
         'menu': document.getElementById('menu'),
-        'padding': 256,
+        'padding': 400,
         'tolerance': 70
     });
-
     // Toggle button
+
+    let toggle_button_flag = true;
+
     document.querySelector('.toggle-button').addEventListener('click', function () {
         slideout.toggle();
+
+        if( toggle_button_flag){
+            $(this).removeClass("icon-sanhengxian").addClass("icon-guanbi");
+            toggle_button_flag = false;
+        }else{
+            $(this).removeClass("icon-guanbi").addClass("icon-sanhengxian");
+            toggle_button_flag = true;
+        }
     });
 }
+
+
 
 
 

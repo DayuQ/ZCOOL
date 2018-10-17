@@ -1,0 +1,198 @@
+#original{
+    background:#fff;
+    position: relative;
+    .original-header{
+        height: 1.333333rem;
+        background: #FFD100;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0  .4rem;
+        img{
+            width: 2.666667rem;
+        }
+        p{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            span.download-app{
+                border: .026667rem solid #504721;
+                border-radius: .066667rem;
+                font-size: .32rem;
+                padding: .106667rem .4rem;
+                margin-right: .533333rem;
+            }
+            .icon-sanhengxian{
+                font-size: .933333rem;
+                position: relative;
+                top: -0.186667rem;
+            }
+            .icon-guanbi{
+                font-size: .733333rem;
+            }
+        }
+        
+
+
+    }
+    .original-nav{
+        height: 2.346667rem;
+        width: 9.2rem;
+        margin: .4rem auto;
+        border-radius: .133333rem;
+        box-shadow: 0 0 .266667rem #ccc;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .nav-items{
+            width: 25%;
+            display: block;
+            text-align: center;
+            font-size: .36rem;
+            p{
+                margin: .2rem 0;
+                text-align: center;
+                position: relative;
+                
+                span{
+                    height: .466667rem;
+                    width: .466667rem;
+                    border-radius: 50%;
+                    background: #FFD100;
+                    position: absolute;
+                    left: .666667rem;
+                    z-index: -1;
+                }
+                i{
+                    font-size: 50px;
+                    font-weight: 600;
+                }
+            }
+            
+        }
+    }
+    .original-main{
+        padding: 0 .4rem;
+        p.original-main-title{
+                font-size: .64rem;
+                padding-top: .4rem;
+                font-weight: 300;
+        }
+        div.original-article{
+            height: 3.733333rem;
+            padding: .266667rem 0;
+            display: flex;
+            div{
+                img{
+                    width: 4.226667rem;
+                    height: 3.186667rem;
+                }
+                &:nth-of-type(2){
+                    padding: .266667rem 0;
+                    padding-left: .266667rem;
+                    p{
+                        &:nth-of-type(1){
+                            font-size: .426667rem;
+                        }
+                        &:nth-of-type(2){
+                            margin: .4rem 0 .266667rem 0;
+                        }
+                        &:nth-of-type(3){
+                            i{
+                                font-size: .466667rem;
+                            }
+                            span{
+                                display: inline-block;
+                                margin: 0 .4rem 0 .133333rem;
+                            }
+                        }
+                        
+                    }
+                    
+                }
+            }
+        }
+        p.original-main-more{
+            margin: .533333rem auto   .933333rem;
+            border: .026667rem solid #A6A6A6;
+            border-radius: .133333rem;
+            width: 4.6rem;
+            height: 1rem;
+            text-align: center;
+            line-height: 1rem;
+            font-size: .36rem;
+        }
+    }
+    .original-footer{
+        height: 6.56rem;
+        background: url(../../images/original.png) no-repeat center 100%;
+        overflow: hidden;
+        p{
+            text-align: center;
+            &:nth-of-type(1){
+                margin: 1rem 0;
+                img{
+                    width: 2.666667rem;
+                }
+            }
+            &:nth-of-type(2){
+                font-size: .48rem;
+                margin-top: -0.4rem;
+                margin-bottom: .4rem;
+            }
+            &:nth-of-type(3){
+                font-size: .426667rem;
+                height: 1.066667rem;
+                line-height: 1.066667rem;
+                width: 3.6rem;
+                border: .026667rem solid #4B4121;
+                border-radius: .533333rem;
+                margin: 0 auto;
+            }
+            &:nth-of-type(4){
+                font-size: .426667rem;
+                height: 1.066667rem;
+                line-height: 1.066667rem;
+                background: #FFD100;
+                width: 3.6rem;
+                border-radius: .533333rem;
+                margin:  auto;
+                left: 0;
+                right: 0;
+                bottom: 1.066667rem;
+                position: fixed;
+
+            }
+            &:nth-of-type(5){
+                font-size: 20px;
+                margin-top: 1.333333rem;
+            }
+
+        }
+    }
+    .original-Mask{
+        display: none;
+        position: absolute;
+        top: 1.466667rem;
+        height: 100%;
+        width: 100%;
+        background: rgba(0,0,0,0.5);
+        div{
+            height: 3.2rem;
+            background: #fff;
+            width: 100%;
+            padding: 0 .4rem;
+            a{
+                display: block;
+                height: 1.306667rem;
+                line-height: 1.306667rem;
+                font-size: .4rem;
+                border-bottom: 2px solid #F4F4F4;
+                i{
+                    font-size: .44rem;
+                }
+            }
+        }
+        
+    } 
+}

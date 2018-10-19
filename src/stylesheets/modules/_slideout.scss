@@ -5,7 +5,7 @@
     bottom: 0;
     right: 0;
     z-index: 0;
-    width: 256px;
+    width: 400px;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     display: none;
@@ -28,10 +28,46 @@
 }
 
 
+
 #menu{
     background: #282828;
-    font-size: .533333rem;
-    p{
-        color: #FFD100;
+    width: 400px;
+    .nav-header{
+        height: 160px;
+        width: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 32px;
+        span{
+            margin-right: 20px;
+            img{
+                height: 80px;
+                width: 80px;
+            }
+            color: #858585;
+            a{
+                color: #FFFFFF;
+                font-size: 32px;
+            }
+        }
+        
+
     }
+    .nav-main{
+        a{
+            display: block;
+            height: 80px;
+            border-top: 2px solid #373737;
+            border-bottom: 2px solid #373737;
+            color: #CCCCCC;
+            font-size: 32px;
+            line-height: 80px;
+            padding-left: 140px;
+            &.active{
+                color: #FFD100;
+            }
+        }
+    }
+    
 }

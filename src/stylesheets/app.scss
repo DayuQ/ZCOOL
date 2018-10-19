@@ -1,4 +1,37 @@
-@import './modules/home';
+ 
 @import './modules/job';
+@import './modules/activity';
 @import './modules/reset';
-@import'../static/fonts/iconfont'
+@import './modules/slideout';
+@import './modules/original';
+
+  
+body { background: #fff; overflow: auto; }
+
+div,header,span,body,html,li, ul{
+    margin:0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
+li, ul {
+    list-style: none;
+}
+#panel{ 
+    //margin-right: -0.013333rem;
+     
+}
+html, body, #app { height: 100%; }
+#panel, #root{ 
+    height: 100%; 
+    overflow: hidden; 
+      
+}
+
+
+@keyframes loading {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}

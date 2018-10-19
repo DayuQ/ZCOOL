@@ -26,6 +26,7 @@
     "start": "concurrently \"npm run mock\"  \"npm run dev\""
   },
   "dependencies": {
+    "async": "^2.6.1",
     "better-scroll": "^1.13.2",
     "slideout": "^1.0.1",
     "yo3": "^3.1.8"

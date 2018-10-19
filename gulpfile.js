@@ -33,9 +33,26 @@ gulp.task('copy:html', () => {
 // 处理scss
 gulp.task('compile:scss', () => {
     console.log('handle scss')
+    /** 报错：可能电脑先监听后改动，有时候电脑反应不过来，会颠倒顺序，保存2下即可解决，
+     * 另一种解决方式是如下：包一个setTimeout,500毫秒，但是可能因为某些原因超过500毫
+     * 秒甚至更多，也会报错。自己选择
+     * Error in plugin "sass"
+[1] Message:
+[1]     src\stylesheets\app.scss
+[1] Error: File to import not found or unreadable: ./modules/job.
+[1]         on line 2 of src/stylesheets/app.scss
+[1] >> @import './modules/job';
+[1]    ^
+     *  */
     return gulp.src('./src/stylesheets/*.scss')
             .pipe(sass(sass_config).on('error', sass.logError))
             .pipe(gulp.dest('./dist/stylesheets'));
+
+    // setTimeout(function(){
+    //     gulp.src('./src/stylesheets/*.scss')
+    //             .pipe(sass(sass_config).on('error', sass.logError))
+    //             .pipe(gulp.dest('./dist/stylesheets'));
+    // },500)
 })
 
 // 模块化打包js

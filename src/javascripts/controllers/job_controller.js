@@ -1,115 +1,161 @@
 
-import job_template from '../views/home-job.html';
-import job_content_template from '../views/home-job-content.html';
+import job_template from '../views/job.html';
+import job_content_template from '../views/job-content.html';
 import job_model    from '../models/home_job_model';
 
-// import BScroll from 'better-scroll';
+import BScroll from 'better-scroll';
+
+let async = require("async");//下载未用
 
 // 当前加载的职位信息的页数
-let _pageNo = 1;
+let _pageNo = 1;//页号
+let _pageSize=15;//每次加载的个数
 let datasources = [] // job页面要显示的所有的数据
-const render = () => {
-    console.log(job_template);
-    
-    //$('.home-container main#job_container').html(job_template);
+let _job_scroll=null;
+let _job_data=null;// 多个职位信息数据
+let _job_list=[];// 多个职位信息数据中 的数组
+let filter_job_list=[]//筛选过后的数据
 
-    // 初始加载一下 首页的框架
-    let _template = Handlebars.compile(job_template);
-    let _html = _template();
-    $('.home-container main#job_container').html(_html);
-    getJobList();
-    // handleContentScroll();
+const render = () => {
+   
+    document.querySelector('#root').innerHTML = job_template;
+     
+
+    //getJobList();
+     handleContentScroll();
+
+    $('.home-title').tap(function () {
+        router.switch('#/job');
+    })
+
+    slideout();
+
+    city_click();
+    
+    
 }   
 
-// const handleContentScroll = async () => { // 处理整个程序滚动等等逻辑
+const doFilter = async (filter_name)=>{
+    _job_data = await job_model.job_list(_pageNo)
+    //console.log(_job_data);
     
+    // 多个职位信息数组
+    _job_list = _job_data.content.data.page.result
 
-//     // 实力和bscroll
-//     let _job_scroll = new BScroll('main', {
-//         startY: -80,
-//         probeType: 2
-//     });
+   
+    console.log(_job_list);
 
-//     await getJobList(); // 初始加载第一页
-//     _job_scroll.refresh(); // 异步加载完成后，让better-scroll重新计算
-
-
-//     let _o_scroll_info_top = $('.scroll-info--top') // 下拉刷新的dom元素
-//     let _o_scroll_info_top_title = _o_scroll_info_top.find('.scroll-info__title') // 下拉刷新的文字dom
+    filter_job_list=_job_list.filter(
+        function(item) {
+            return item.city == filter_name
+        }
+    );
+    console.log("筛选数据",filter_job_list); 
+    if(filter_job_list.length<=5){
+        console.log("不可滚动");
+         
+    }
     
-//     let _o_scroll_info_bottom = $('.scroll-info--bottom') // 下拉刷新的dom元素
-//     let _o_scroll_info_bottom_title = _o_scroll_info_bottom.find('.scroll-info__title') // 下拉刷新的文字dom
-
-//     let _top_class = 'scroll-info--top scroll-info ' // 下拉刷新元素的初始类名
-//     let _scroll_y_sta = 'go' // 下拉刷新的状态
-
-
-//     let _scroll_bottom_sta = false;
     
-//     _job_scroll.on('scroll', ({ x, y }) => {
-//         if ( y > 0 && _scroll_y_sta !== 'release') { // 放手就刷新
-//             // 使用状态判断是放在符合条件还不断的更改视图
-//             _scroll_y_sta = 'release'
-//             _o_scroll_info_top.prop('class', _top_class + 'release-refresh')
-//             _o_scroll_info_top_title.html('放开就刷新')
-//         }
-
-//         _scroll_bottom_sta = false;
-//         if ( _job_scroll.maxScrollY - y > 0 ) {
-//             _scroll_bottom_sta = true;
-//             _o_scroll_info_bottom_title.html('放开去加载')
-//         }
-//     })
-
-//     _job_scroll.on('scrollEnd', async ({ x, y }) => {
-//         if ( y > -80 && y < 0 ) { // 没有完全拉出刷新元素
-//             // 塞回去
-//             _job_scroll.scrollTo(0, -80, 300)
-//         }else if ( y === 0  ) { // 说明该获取数据去了
-//             if ( _scroll_y_sta === 'release' ) {
-//                 _o_scroll_info_top.prop('class', _top_class + 'loading')
-//                 _o_scroll_info_top_title.html('正在加载')
-//                 await refreshJobList()
-//                 _o_scroll_info_top.prop('class', _top_class + 'go-refresh')
-//                 _o_scroll_info_top_title.html('下拉就刷新')
-//                 _scroll_y_sta = 'go'
-//                 _job_scroll.refresh()
-//             }     
-//             _job_scroll.scrollTo(0, -80, 300)
-//         }
-
-
-//         if ( _job_scroll.maxScrollY - y === 0 && _scroll_bottom_sta ) {
+}
+//点击地址，弹出遮盖层
+const city_click = async ()=>{ 
+    
+        
+    $('.job-city').on('tap',function(e){ 
+       //点击地址，弹出遮盖层
+        if($('.citiesSimple').hasClass('active')){
+            $('.citiesSimple').removeClass('active');
+            _job_scroll.enable();
+        }else{
+            $('.citiesSimple').addClass('active');
+            _job_scroll.disable();
             
-//             _o_scroll_info_bottom_title.html('正在加载')
-//             _o_scroll_info_bottom.addClass('loading')
-//             _pageNo ++
-//             await getJobList();
-//             _o_scroll_info_bottom_title.html('上拉去加载')
-//             _o_scroll_info_bottom.removeClass('loading')
-//             _job_scroll.refresh()
+        }
+        //点击除选择城市之外的地方，则弹出层消失
+        $('.citiesSimple-toggle').tap(function(){
+            $('.citiesSimple').removeClass('active');
+            _job_scroll.enable();
+        })
 
-//         }
-//     })
-// }
+      
+        //点击选择城市,筛选数据
+        $('.citiesSimple-module-items').on('tap',async function(e){
+             
+            document.querySelector('.job-city a').innerHTML=e.target.innerHTML;
+            document.querySelector('.citiesSimple-module-current').innerHTML=e.target.innerHTML;
+
+            await getJobList(); // 初始加载第一页
+            doFilter(e.target.innerText)
+            $('.citiesSimple').removeClass('active');
+            _job_scroll.enable();
+             
+            
+        })
+
+    })
+}
 
 
+const handleContentScroll = async () => { // 处理整个程序滚动等等逻辑
+     
+    // 实力和bscroll
+    _job_scroll = new BScroll('.job-main', {
+        startY: 0,
+        probeType: 2
+    });
 
-// const refreshJobList = async () => { // 下拉刷新的时候去获取数据
-//     let _job_data = await job_model.job_refresh()
-//     let _job_list = _job_data.content.data.page.result
-//     datasources = [ ..._job_list, ...datasources ] // 刷新，新数据放在前面
-//     renderJobList()
-// }
+    await getJobList(); // 初始加载第一页
+    _job_scroll.refresh(); // 异步加载完成后，让better-scroll重新计算
+ 
+    
+    let _o_scroll_info_bottom = $('.scroll-info--bottom') // 下拉刷新的dom元素
+    let _o_scroll_info_bottom_title = _o_scroll_info_bottom.find('.scroll-info__title') // 下拉刷新的文字dom
+ 
 
+    let _scroll_bottom_sta = false;
+    
+    _job_scroll.on('scroll', ({ x, y }) => {
+        console.log("执行滚动");
+        _scroll_bottom_sta = false;
+        if ( _job_scroll.maxScrollY - y > 0 ) {
+            _scroll_bottom_sta = true;
+            _o_scroll_info_bottom_title.html('放开去加载')
+        }
+    })
+
+    _job_scroll.on('scrollEnd', async ({ x, y }) => { 
+        if ( _job_scroll.maxScrollY - y === 0 && _scroll_bottom_sta ) {
+            
+            _o_scroll_info_bottom_title.html('正在加载')
+            _o_scroll_info_bottom.addClass('loading')
+            _pageNo ++
+            await getJobList();
+            _o_scroll_info_bottom_title.html('上拉去加载')
+            _o_scroll_info_bottom.removeClass('loading')
+            _job_scroll.refresh()
+
+        }
+    })
+}
+ 
 const getJobList = async () => { // 获取某一页数据
 
-    let _job_data = await job_model.job_list(_pageNo)
+//     let _job_data = await job_model.job_list(_pageNo)
+//     //console.log(_job_data);
+    
+//     // 多个职位信息数组
+//     let _job_list = _job_data.content.data.page.result
+//   // console.log(_job_list);
+    
+    // if(){//获取城市地址，是-》用筛选过的数据，否-》直接获取定位的默认地址筛选的数据
 
-    // 多个职位信息数组
-    let _job_list = _job_data.content.data.page.result
-
-    datasources = [ ...datasources, ..._job_list ]
+    // }
+    
+     //获取城市地址，筛选数据
+    //filter_job_list为筛选过的数据
+    await doFilter(document.querySelector('.job-city a').innerText);
+    datasources = [ ...datasources, ...filter_job_list ]
 
     renderJobList() // 每次获取到新的数据后重新渲染
    
@@ -121,10 +167,24 @@ const renderJobList = () => { // 渲染job-content
     // 将handlebar模板编译成html格式的字符串
     let _html = _template({ _job_list: datasources})
     //  渲染job视图
-    $('.home-container main .job-content').html(_html)
+    $('.job-container main .job-content').html(_html)
 }
 
 
+const slideout = ()=>{
+    var slideout = new Slideout({
+        'panel': document.getElementById('panel'),
+        'menu': document.getElementById('menu'),
+        'padding': 256,
+        'tolerance': 70
+    });
+
+    // Toggle button
+    document.querySelector('.toggle-button').addEventListener('click', function () {
+        slideout.toggle();
+    });
+}
+ 
 export default {
     render
 }

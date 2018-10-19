@@ -1,5 +1,5 @@
 // home 视图的控制器
-import home_template from '../views/home.html'; 
+import activity_template from '../views/activity.html'; 
 
 // const job_controller = require('./home_job_controller'); 
 // const search_controller = require('./search_controller'); 
@@ -9,14 +9,14 @@ import home_template from '../views/home.html';
 const render = () => {
     // 刚才说了，一切皆模块，说明html也是模块，看一下它暴露的是什么 发现是字符串
     // console.log(homeTemplate)
-    document.querySelector('#root').innerHTML = home_template;
+    document.querySelector('#root').innerHTML = activity_template;
     
     // 渲染home的job视图
     // job_controller.render();
 
     // switchTab();
     $('.home-title').tap(function () {
-        router.switch('#/job');
+        router.switch('#/avtivity');
     })
 
 

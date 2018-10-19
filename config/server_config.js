@@ -7,7 +7,16 @@ const server_config = {
     port: 8090,
     livereload: true,
     middleware: [
-        proxy('/lagou', { // /lagou 这个是判断依据 当我们请求'http://localhost:8080/lagou/abc'的时候，这个代理就生效了
+        // //https://m.zcool.com.cn/job/api/recommendPosition.do?cityId=47&pageNo=2&pageSize=10
+        // proxy('/zcool', { // /lagou 这个是判断依据 当我们请求'http://localhost:8080/lagou/abc'的时候，这个代理就生效了
+        //     target: 'https://m.zcool.com.cn',// 配置目标服务器 当前服务器回去请求 https://m.lagou.com/lagou/abc
+        //     changeOrigin: true,
+        //     pathRewrite: { // https://m.lagou.com/abc
+        //         '^/zcool': ''
+        //     }
+        // }),
+
+         proxy('/lagou', { // /lagou 这个是判断依据 当我们请求'http://localhost:8080/lagou/abc'的时候，这个代理就生效了
             target: 'https://m.lagou.com',// 配置目标服务器 当前服务器回去请求 https://m.lagou.com/lagou/abc
             changeOrigin: true,
             pathRewrite: { // https://m.lagou.com/abc

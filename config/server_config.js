@@ -8,7 +8,6 @@ const proxy = require('http-proxy-middleware');
 // 开发服务器的配置
 const server_config = {
     host: 'localhost',
-<<<<<<< HEAD
     port: 8090,
     livereload: true,
     middleware: [
@@ -21,18 +20,29 @@ const server_config = {
         //     }
         // }),
 
-         proxy('/lagou', { // /lagou 这个是判断依据 当我们请求'http://localhost:8080/lagou/abc'的时候，这个代理就生效了
+        proxy('/lagou', { // /lagou 这个是判断依据 当我们请求'http://localhost:8080/lagou/abc'的时候，这个代理就生效了
             target: 'https://m.lagou.com',// 配置目标服务器 当前服务器回去请求 https://m.lagou.com/lagou/abc
-=======
-    port: 8080, 
-    livereload: true,
-    middleware: [
+            changeOrigin: true,
+            pathRewrite: { // https://m.lagou.com/abc
+                '^/lagou': ''
+            }
+        }),
         proxy('/original', { // /lagou 这个是判断依据 当我们请求'http://localhost:8080/lagou/abc'的时候，这个代理就生效了
             target: 'https://api.zcool.com.cn',// 配置目标服务器 当前服务器回去请求 https://m.lagou.com/lagou/abc
->>>>>>> f7f516d7707d989ad1410341ea857515e28ab5b9
+           
+
             changeOrigin: true,
             pathRewrite: { // https://m.lagou.com/abc
                 '^/original': '' 
+            }
+        }),
+        proxy('/myzcool', { // /lagou 这个是判断依据 当我们请求'http://localhost:8080/lagou/abc'的时候，这个代理就生效了
+            target: 'https://m.zcool.com.cn',// 配置目标服务器 当前服务器回去请求 https://m.lagou.com/lagou/abc
+           
+
+            changeOrigin: true,
+            pathRewrite: { // https://m.lagou.com/abc
+                '^/myzcool': '' 
             }
         }),
         proxy('/api', {

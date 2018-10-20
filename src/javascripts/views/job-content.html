@@ -16,20 +16,20 @@
 {{#each _job_list}}
 <div class="job-item">
     <!-- <img src="https://img.zcool.cn/community/00e5dc5a531fc3a80120c2b089b262.jpg" class="job-logo"> -->
-    <img src="https://www.lgstatic.com/{{this.companyLogo}}" class="job-logo">
+    <img src="{{this.logo}}" class="job-logo">
     
     <!-- <div class="job-logo" style="background-image: url(&quot;https://img.zcool.cn/community/00e5dc5a531fc3a80120c2b089b262.jpg&quot;);"></div>
      -->
     <div class="job-info">
-        <div class="job-info-title">{{this.positionName}}</div>
+        <div class="job-info-title">{{this.post_name}}</div>
         <div class="job-info-cs clear">
-            <span class="job-info-company limitlength">{{this.companyName}}</span>
-            <span class="job-info-salary">{{this.salary}}</span>
+            <span class="job-info-company limitlength">{{this.name_ltd}}</span>
+            <span class="job-info-salary">{{this.post_salary}}</span>
         </div>
         <div class="job-info-line"></div>
         <div class="job-info-gray clear">
-            <p>{{this.city}}&nbsp;|&nbsp;经验1-3年&nbsp;|&nbsp;本科</p>
-            <p>{{this.createTime}}发布</p>
+            <p>{{this.city}}&nbsp;|&nbsp;{{this.experience_name}}&nbsp;|&nbsp;{{diploma_name}}</p>
+            <p>{{this.publishTime}}</p>
         </div>
     </div>
 </div>

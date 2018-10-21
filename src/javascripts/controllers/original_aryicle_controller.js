@@ -1,7 +1,7 @@
 
 import original_template from '../views/original_aryicle.html';
 import aryicle_model    from '../models/original_aryicle_model';
-import BScroll from 'better-scroll';
+
 import { async } from 'rxjs/internal/scheduler/async';
 
 // 当前加载信息的页数
@@ -25,7 +25,6 @@ const render = async () => {
 const getAryicleList = async () => { // 获取某一页数据
     let _aryicle_data = await aryicle_model.original_aryicle_list(_pageNo)
 
-    // 多个职位信息数组
     let _aryicle_list = _aryicle_data.data.content
 
     datasources = [ ...datasources, ..._aryicle_list ]

@@ -1,0 +1,36 @@
+div.download_box{
+    width:100%;
+    height:100%;
+    box-sizing: border-box;
+    background:url(../../images/bg3x.jpg) center center no-repeat ;
+    background-size: 111%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 2.67rem;
+    .download_btn{
+        display: inline-block;
+        background: #ffd100;
+        box-shadow: 0 0 0.08rem 0 rgba(0,0,0,0.22);
+        border-radius: 1.33rem;
+        width: 6.27rem;
+        height: 1.87rem;
+        margin-top: 0.53rem;
+        border: none;
+        outline: none;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: .466667rem;
+        i{
+            font-size: 1.066667rem;
+            padding-left: .4rem;
+        }
+        span{
+            padding-right: .4rem;
+        }
+    }
+}

@@ -1,9 +1,6 @@
 // home 视图的控制器
 import original_template from '../views/original.html'; 
 import original_aryicle_controller from './original_aryicle_controller';
-// const job_controller = require('./home_job_controller'); 
-// const search_controller = require('./search_controller'); 
-// const profile_controller = require('./profile_controller'); 
 
 // 负责将home视图模板渲染在对应的地方
 const render = () => {
@@ -17,6 +14,8 @@ const render = () => {
     original_aryicle_controller.render();
     console.log("original_con")
     original_Mask();
+
+    open_app_mask();
     
 }
 
@@ -37,5 +36,16 @@ const original_Mask = ()=>{
 
 }
 
+const open_app_mask = ()=>{
+    $(".original-app-open").on("tap",function(){
+        $(".open_app_mask").css({"display":"flex"});
+    })
+    $(".open_app_content_close").on("tap",function(){
+        $(".open_app_mask").hide();
+    })
+    $(".open_app_content_p2").on("tap",function(){
+        $(".open_app_mask").hide();
+    })
+}
 
 export default { render }

@@ -57,21 +57,28 @@
                 border-radius: .08rem;
                 width: 7.466667rem;
                 height:.933333rem;
-                i{
+                
+                i.activity-sousou{
                     width: .4rem;
                     height: .4rem;
                     color:#999;
                     margin:0 .266667rem;
+                    font-size: .4rem;
                 }
-                span{
+                span.activity-close{
                     width: .4rem;
                     height: .4rem;
                     color:#999;
                     margin:0 .266667rem;
+                    font-size: .4rem;
                 }
-                input{
+                input.activity-input{
+                    height:.666667rem;
+                    width:5.333333rem;
+                    font-size: .4rem;
                     border: none;
                     outline:none;
+                    color:#333;
                 }
                 
             }
@@ -137,7 +144,8 @@
     }
     div.load-app{
         img{
-            height: .666667rem;
+            height: 1.666667rem;
+            width:100%;
         }
         i{
             margin: 0 .133333rem;
@@ -156,7 +164,7 @@
             font-size: .733333rem;
         }
     }
-    .footer{
+    .activity-footer{
         padding: .586667rem .266667rem;
         text-align: center;
         background-color: #f9f9f9;

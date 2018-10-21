@@ -198,9 +198,8 @@ const slideout = ()=>{
 
     let toggle_button_flag = true;
 
-    document.querySelector('.toggle-button').addEventListener('click', function () {
+    $('.toggle-button').on('tap', function () {
         slideout.toggle();
-        alert();
         if( toggle_button_flag){
             $(this).removeClass("icon-sanhengxian").addClass("icon-guanbi");
             toggle_button_flag = false;

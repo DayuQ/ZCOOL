@@ -4,6 +4,7 @@
 @import './modules/reset';
 @import './modules/slideout';
 @import './modules/original';
+@import './modules/login';
 
   
 body { background: #fff; overflow: hidden; }
@@ -21,7 +22,7 @@ li, ul {
 }
 #panel{ 
     //margin-right: -0.013333rem;
-     
+     background: #fff;
 }
 html, body, #app { height: 100%; }
 #panel, #root{ 

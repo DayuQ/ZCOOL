@@ -17,6 +17,8 @@ const render = () => {
     original_aryicle_controller.render();
     console.log("original_con")
     original_Mask();
+
+    open_app_mask();
     
 }
 
@@ -37,5 +39,13 @@ const original_Mask = ()=>{
 
 }
 
+const open_app_mask = ()=>{
+    $(".original-app-open").on("tap",function(){
+        $(".open_app_mask").css({"display":"flex"});
+    })
+    $(".open_app_content_close").on("tap",function(){
+        $(".open_app_mask").hide();
+    })
+}
 
 export default { render }

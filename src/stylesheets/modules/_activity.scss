@@ -1,7 +1,6 @@
 
 .activity-container{
     background:#eee;
-
     .activity-header{
         height:1.466667rem;
         background: #282828;
@@ -20,17 +19,16 @@
                 font-size: .533333rem;
                 font-weight: 600;
             }
-            b{
+            .icon-sanhengxian{
                 color: #FFD100;
                 font-size: .933333rem;
-                line-height: .653333rem;
+                position: relative;
+                top: -0.186667rem;
             }
-            // &:first-of-type i {
-            //     font-size: 1.333333rem;
-            //     position: absolute;
-            //     top: 0px;
-            //     left: 0px;
-            // }
+            .icon-guanbi{
+                color: #FFD100;
+                font-size: .733333rem;
+            }
         }
     }
     .mask-search{
@@ -163,6 +161,7 @@
         text-align: center;
         background-color: #f9f9f9;
         color:#999;
+        width: 100%;
         font-size: .506667rem;
         .foot-top{
             padding-bottom: .266667rem;

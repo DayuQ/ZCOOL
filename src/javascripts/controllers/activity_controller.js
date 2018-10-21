@@ -33,7 +33,6 @@ const slideout = ()=>{
 
     document.querySelector('.toggle-button').addEventListener('click', function () {
         slideout.toggle();
-
         if( toggle_button_flag){
             $(this).removeClass("icon-sanhengxian").addClass("icon-guanbi");
             toggle_button_flag = false;

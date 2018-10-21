@@ -6,7 +6,7 @@
 @import './modules/original';
 
   
-body { background: #fff; overflow: auto; }
+body { background: #fff; overflow: hidden; }
 
 div,header,span,body,html,li, ul{
     margin:0;
@@ -26,8 +26,7 @@ li, ul {
 html, body, #app { height: 100%; }
 #panel, #root{ 
     height: 100%; 
-    overflow: hidden; 
-      
+    overflow: auto; 
 }
 
 

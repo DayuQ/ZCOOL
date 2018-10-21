@@ -177,11 +177,14 @@ main.job-main {
         display: flex;
         padding: 0 .4rem;
          .toggle-button{
-             b{
-                 
-                font-size: .666667rem;
-                color: black;
-             }
+            &.icon-sanhengxian{
+                font-size: .933333rem;
+                position: relative;
+                top: -0.186667rem;
+            }
+            &.icon-guanbi{
+                font-size: .733333rem;
+            }
          }
         .job-title{
             text-align:center;
@@ -268,7 +271,7 @@ main.job-main {
     }
 }
 
-.footer { 
+.job-footer { 
     flex-grow: 0; flex-shrink: 0;
     font-size: .306667rem;
     display:flex;

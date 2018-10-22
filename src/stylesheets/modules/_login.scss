@@ -73,14 +73,14 @@
                     color: #999999;
                 }
             }
-            &.login-btn{
-                margin-top: .266667rem;
-                font-size: .426667rem;
-                line-height: 1.146667rem;
-                text-align: center;
-                background: #EEEEEE;
-                border-radius: .133333rem;
-            }
+            // &.login-btn{
+            //     margin-top: .266667rem;
+            //     font-size: .426667rem;
+            //     line-height: 1.146667rem;
+            //     text-align: center;
+            //     background: #EEEEEE;
+            //     border-radius: .133333rem;
+            // }
         }
         span{
             color: #BABABA;
@@ -100,8 +100,46 @@
                 padding: 0 .266667rem;
                 width: 5.6rem;
             }
+
+
+            .login-btn{
+                height: 1.146667rem;
+                margin-bottom: .4rem;
+                border: 3px solid #EBEBEB;
+                border-radius: .04rem;
+                padding: 0 .266667rem;
+                font-size: 0;
+                width: 100%;
+        
+        
+                margin-top: .266667rem;
+                font-size: .426667rem;
+                line-height: 1.146667rem;
+                text-align: center;
+                background: #EEEEEE;
+                border-radius: .133333rem;
+            }
+
+
         }
 
+    }
+    .login-btn{
+        height: 1.146667rem;
+        margin-bottom: .4rem;
+        border: 3px solid #EBEBEB;
+        border-radius: .04rem;
+        padding: 0 .266667rem;
+        font-size: 0;
+        width: 100%;
+
+
+        margin-top: .266667rem;
+        font-size: .426667rem;
+        line-height: 1.146667rem;
+        text-align: center;
+        background: #EEEEEE;
+        border-radius: .133333rem;
     }
     .login-footer{
         width: 100%;

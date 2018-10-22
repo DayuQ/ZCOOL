@@ -6,7 +6,7 @@
         登录站酷
     </div>
     <div class="login-main login-phone">
-        <form action="">
+        <form id="tel-loginForm" action="http://localhost:8080/#/original" method="get">
             <p class="phone">
                 <span>
                     +86
@@ -25,9 +25,9 @@
                 未注册手机验证后自动登陆；登录即同意
                 <a href=""> 《用户协议》 </a>
             </span>
-            <p class="login-btn">
-                登录
-            </p>
+
+            <input type="button" class="login-btn" value=" 登录"> 
+
             <span class="login-type-phone">
                 密码登陆
             </span>
@@ -35,7 +35,7 @@
     </div>
 
     <div class="login-main login-password">
-            <form action="">
+            <form id="pwd-loginForm"  action="http://localhost:8080/#/original"  onsubmit="return toVaild()">
                 <p class="username">
                     <input type="number" placeholder="手机号/邮箱">
                 </p>
@@ -43,9 +43,8 @@
                     <input type="password" placeholder="密码长度6-22位">
                 </p>
 
-                <p class="login-btn">
-                    登录
-                </p>
+                <input type="button" class="login-btn" value=" 登录"> 
+
                 <span class="login-type-password">
                     短信登陆
                 </span>

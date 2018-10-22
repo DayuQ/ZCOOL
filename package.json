@@ -21,9 +21,11 @@
     "webpack-stream": "^5.1.1"
   },
   "scripts": {
-    "dev": "gulp",
+    "dev": "gulp --gulpfile ./gulpfile-dev.js",
+    "build": "gulp --gulpfile ./gulpfile-build.js",
     "mock": "json-server ./src/static/mock/mock.js -r ./src/static/mock/routes.json",
     "start": "concurrently \"npm run mock\"  \"npm run dev\""
+    
   },
   "dependencies": {
     "async": "^2.6.1",
